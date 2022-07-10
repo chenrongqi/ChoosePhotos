@@ -16,10 +16,16 @@ import java.util.Map;
 /**
  * @Author crqi
  * @Description 逻辑控制类
+ * 简单的MVP实现，逻辑动作流向presenter，业务逻辑由presenter处理之后通过接口传递model进而更换view的展示
+ * 架构的核心是试图逻辑分离，达到解耦复用的目的
+ * 存在的问题，接口交互导致较多的接口实现
  * @Date 7/9/22
  * @Email chenrongqiing@163.com
  */
 public class Presenter<T extends IView> {
+    /**
+     * 持有的view对象
+     */
     private WeakReference<T> viewWeak;
 
     public Presenter(T view) {
